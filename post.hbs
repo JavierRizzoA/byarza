@@ -1,0 +1,56 @@
+{{!< default}}
+
+{{#post}}
+  <div class="post-header" style="{{#if feature_image}}{{#has tag="#SingleImagePage"}}height: 2rem;{{else}}background-image: url({{feature_image}}); background-size: cover; background-position:center; background-attachment:fixed; background-repeat: no-repeat;{{/has}}{{else}}height: 2rem;{{/if}}">
+  </div>
+  {{#has tag="#SingleImagePage"}}
+    <main class="single-image-page">
+      <article class="{{post_class}}">
+        <div class="img" style="background-image: url({{feature_image}}); background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 50%">
+        </div>
+        <div class="content">
+          <div>
+            <h1 class="{{#unless feature_image}}no-border{{/unless}}">{{title}}</h1>
+            {{content}}
+          </div>
+        </div>
+      </article>
+    </main>
+  {{else}}
+    <main>
+      <article class="{{post_class}}">
+        <h1 class="{{#unless feature_image}}no-border{{/unless}}">{{title}}</h1>
+        <p class="tags">{{tags separator=" | " autolink="false"}}</p>
+        {{content}}
+      </article>
+    </main>
+  {{/has}}
+{{/post}}
+
+<script>
+  (function (window, document) {
+    var resizeImagesInGalleries = function resizeImagesInGalleries() {
+      var images = document.querySelectorAll('.kg-gallery-image img');
+      images.forEach(function (image) {
+        var container = image.closest('.kg-gallery-image');
+        var width = image.attributes.width.value;
+        var height = image.attributes.height.value;
+        var ratio = width / height;
+        container.style.flex = ratio + ' 1 0%';
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', resizeImagesInGalleries);
+  })(window, document);
+
+
+  function setImageHeight() {
+    var image = $('.single-image-page .img');
+    if(image) {
+      image.style.height = image.offsetWidth + "px";
+    }
+  }
+
+  window.onresize = setImageHeight;
+  setImageHeight();
+</script>
