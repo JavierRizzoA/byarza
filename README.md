@@ -4,6 +4,10 @@ A [ghost](http://ghost.org/) theme designed to showcase a portfolio of projects.
 
 Deployed to http://byarza.com.
 
+# Screenshot
+
+![Screenshot](screenshot.jpg)
+
 # Installation
 
 Just clone the repo into your `content/themes/` directory.
