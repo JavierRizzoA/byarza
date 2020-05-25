@@ -1,8 +1,8 @@
 {
   "name": "byarza",
-  "description": "Ghost theme for Bárbara Yarza's personal website",
+  "description": "A ghost theme designed to showcase a portfolio of projects.",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["ghost-theme", "portfolio", "projects"],
   "homepage": "https://github.com/JavierRizzoA/byarza",
   "repository": {
     "type": "git",
