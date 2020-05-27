@@ -55,6 +55,7 @@ body {
   color: #333;
   font-size: 18px;
   background-color: #FFF;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -186,7 +187,7 @@ main.single-image-page {
   }
 }
 
-main.masonry {
+main.masonry, div.masonry {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -203,6 +204,14 @@ main.masonry {
   background-position: center;
   border: 5px solid #FFF;
   box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 600px) {
+  .brick {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 .brick:nth-child(4n+1) {
@@ -318,6 +327,11 @@ article.post h5,
 article.post h6,
 article.post figure.kg-code-card {
   max-width: 730px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article.post .masonry h2 {
   margin-left: auto;
   margin-right: auto;
 }

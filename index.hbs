@@ -2,6 +2,8 @@
 
 <main class="masonry">
   {{#foreach posts}}
-    {{> "post-card"}}
+    {{^has tag="#life-in-layers"}}
+      {{> "post-card"}}
+    {{/has}}
   {{/foreach}}
 </main>
