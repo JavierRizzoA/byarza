@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html lang="{{@site.lang}}">
+<html lang="{{@site.locale}}">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta name="theme-color" content="#00c7c0">
-    <meta name="msapplication-navbutton-color" content="#00c7c0">
+    <meta name="theme-color" content="#f16322">
+    <meta name="msapplication-navbutton-color" content="#f16322">
 
     <title>{{meta_title}}</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <link rel="preload" href="fonts/Quicksand-Regular.otf" as="font" />
+    <link rel="preload" href="fonts/Quicksand-Regular.otf" as="font" />
+    <link rel="preload" href="fonts/Quicksand-BoldItalic.otf" as="font" />
 
+    <script src="https://kit.fontawesome.com/79fbc5de34.js" crossorigin="anonymous"></script>
+    <script src="//cdn.rawgit.com/namuol/cheet.js/master/cheet.min.js" type="text/javascript"></script>
     <script>
       window.$$ = document.querySelectorAll.bind(document);
       window.$ = document.querySelector.bind(document);
+
+
+      (function (window, document) {
+        var resizeImagesInGalleries = function resizeImagesInGalleries() {
+          var images = document.querySelectorAll('.kg-gallery-image img, kg-image-card img');
+          images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+          });
+        };
+
+        document.addEventListener('DOMContentLoaded', resizeImagesInGalleries);
+      })(window, document);
+
+      cheet('m a m a d u', function() {
+        alert(1);
+      });
     </script>
 
     {{ghost_head}}

@@ -1,0 +1,20 @@
+{{!< default}}
+
+{{#post}}
+  <div class="post-header" style="{{#if feature_image}}background-image: url({{feature_image}}); background-size: cover; background-position:center; background-attachment:fixed; background-repeat: no-repeat;{{else}}height: 2rem;{{/if}}">
+  </div>
+  <main>
+    <article class="{{post_class}}">
+      <h1 class="{{#unless feature_image}}no-border{{/unless}}">{{title}}</h1>
+      <p class="tags">{{tags separator=" | " autolink="false"}}</p>
+      {{content}}
+    </article>
+  </main>
+  <div class="masonry">
+    {{#get "posts" filter="tags:hash-experiences" as |expp|}}
+      {{#foreach expp}}
+        {{> "post-card"}}
+      {{/foreach}}
+    {{/get}}
+  </div>
+{{/post}}

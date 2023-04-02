@@ -1,0 +1,25 @@
+<ul class="nav">
+  {{#foreach navigation}}
+    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+      <a href="{{url absolute="true"}}">
+        {{#has slug="instagram"}}
+          <i class="fab fa-instagram"></i>
+        {{else}}
+          {{#has slug="facebook"}}
+            <i class="fab fa-facebook"></i>
+          {{else}}
+            {{#has slug="twitter"}}
+              <i class="fab fa-twitter"></i>
+            {{else}}
+              {{#has slug="linkedin"}}
+                <i class="fab fa-linkedin"></i>
+              {{else}}
+                {{label}}
+              {{/has}}
+            {{/has}}
+          {{/has}}
+        {{/has}}
+      </a>
+    </li>
+  {{/foreach}}
+</ul>
